@@ -60,7 +60,7 @@
             transform: translateY(0);
         }
 
-        /* --- NAVBAR (UPDATED - LEBIH LEBAR) --- */
+        /* --- NAVBAR --- */
         header {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -73,10 +73,8 @@
 
         nav {
             max-width: 1400px;
-            /* Diperlebar ke 1400px */
             margin: 0 auto;
             padding: 1rem 40px;
-            /* Padding kiri-kanan ditambah sedikit */
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -185,6 +183,7 @@
             transition: all 0.3s ease;
             cursor: pointer;
             display: inline-block;
+            border: none;
         }
 
         .btn-primary {
@@ -313,6 +312,33 @@
             }
         }
 
+        /* --- FEATURES BAR --- */
+        .features-bar {
+            background: var(--dark);
+            color: white;
+            padding: 60px 20px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+            text-align: center;
+        }
+
+        .feat-item h4 {
+            margin-top: 15px;
+            font-size: 1.2rem;
+        }
+
+        .feat-item p {
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+
         /* --- SERVICES --- */
         .services {
             padding: 100px 20px;
@@ -329,6 +355,18 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 10px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--primary);
+            margin: 10px auto 0;
+            border-radius: 2px;
         }
 
         .section-header p {
@@ -404,40 +442,89 @@
             font-size: 1.1rem;
         }
 
-        /* --- FEATURES BAR --- */
-        .features-bar {
-            background: var(--dark);
-            color: white;
-            padding: 60px 20px;
-        }
-
-        .features-container {
-            max-width: 1200px;
-            margin: 0 auto;
+        /* --- CONTACT SECTION (NEW) --- */
+        .contact-section {
+            padding: 80px 20px;
+            background-color: #f1f5f9;
+            /* Light Gray Background */
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            gap: 30px;
-            text-align: center;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .feat-item h4 {
-            margin-top: 15px;
-            font-size: 1.2rem;
+        .contact-card-wrapper {
+            background: white;
+            width: 100%;
+            max-width: 1000px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 50px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            /* Kiri lebih lebar sedikit */
+            gap: 60px;
         }
 
-        .feat-item p {
-            opacity: 0.7;
-            font-size: 0.9rem;
+        .contact-form h3,
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: var(--dark);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            background: #f8fafc;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: white;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        .info-item {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .info-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--dark);
+            font-weight: 500;
+        }
+
+        .info-row span {
+            color: var(--gray);
+            font-weight: 400;
+            width: 60px;
         }
 
         /* --- FOOTER & WA --- */
         footer {
-            background: #f8fafc;
+            background: var(--white);
             padding: 40px 20px;
             text-align: center;
             border-top: 1px solid #eee;
-            margin-top: 60px;
         }
 
         .float-wa {
@@ -480,14 +567,18 @@
             .hero-visual {
                 display: none;
             }
+
+            .contact-card-wrapper {
+                grid-template-columns: 1fr;
+                padding: 30px;
+                gap: 40px;
+            }
         }
 
         @media (max-width: 768px) {
             nav {
                 padding: 1rem 20px;
             }
-
-            /* Reset padding on mobile */
 
             .nav-links {
                 position: absolute;
@@ -533,7 +624,7 @@
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#services">Layanan</a></li>
-                <li><a href="#kenapa-kami">Keunggulan</a></li>
+                <li><a href="#contact">Kontak</a></li>
                 <li><a href="https://www.instagram.com/installulanglaptopjogjaa/" target="_blank" class="cta-nav">Ikuti
                         Kami</a></li>
             </ul>
@@ -567,7 +658,7 @@
         </div>
     </section>
 
-    <section id="kenapa-kami" class="features-bar reveal">
+    <section class="features-bar reveal">
         <div class="features-container">
             <div class="feat-item">
                 <h2>🚀</h2>
@@ -611,6 +702,47 @@
                 <h3>Maintenance</h3>
                 <p>Pembersihan virus, optimalisasi sistem, cleaning file sampah agar laptop tidak lemot.</p>
                 <div class="price">Mulai 30K</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section reveal">
+        <div class="section-header" style="margin-bottom: 30px;">
+            <h2>Hubungi Saya</h2>
+        </div>
+
+        <div class="contact-card-wrapper">
+            <div class="contact-form">
+                <h3>Kirim Pesan</h3>
+                <form
+                    onsubmit="event.preventDefault(); alert('Terima kasih! Pesan Anda telah terkirim (Demo). Silakan hubungi WA untuk respon cepat.');">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nama Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" class="form-control" placeholder="Email Anda" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea class="form-control" rows="5" placeholder="Pesan Anda" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">Kirim Pesan</button>
+                </form>
+            </div>
+
+            <div class="contact-info">
+                <h3>Info Kontak</h3>
+                <p>Atau hubungi saya langsung melalui:</p>
+
+                <div class="info-item">
+                    <div class="info-row">
+                        <span>Email:</span>
+                        <div>arif.setiawan2209@gmail.com</div>
+                    </div>
+                    <div class="info-row">
+                        <span>Telp:</span>
+                        <div>+62-896-3232-1244</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
